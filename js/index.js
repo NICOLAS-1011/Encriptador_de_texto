@@ -1,20 +1,34 @@
-const caracteres = "abcdefghijklmnopqrstuvwxyz0123456789";
-var resultadoCifrar = [];
+//DECLARACION DE VARIABLES
+    //Tomara de aqui los caracteres aleatorios
+const caracteres = "abcdefghijklmnopqrstuvwxyz0123456789"; 
+
+    //Guarda la palabra como un arreglo para poder insertar/quitar los caracteres por su posicion
+var resultadoCifrar = []; 
 var resultadoDescifrar = [];
-var caracter = 0;
+
+    //Se usa para guardar el caracter seleccionado aleatoriamente
+var caracter = 0; 
+
+    //Guardara el resultado de cada procedimiento como cadena de txt para imprimirlo despues 
 var cifrado = "";
 var descifrado = "";
 
+//FUNCIONES DE BOTONES
 function cifrar() {
+    //Captura lo que se encuentre en el campo de txt del HTML con el id 'campoTexto'
     var texto = document.getElementById(`campoTexto`).value;
+    
+    //Pasa el txt a minusculas (PODRIA ELIMINARSE POR FUNCION filtrarEntrada)
     texto = texto.toLowerCase()
     var long = 0;
     
-    
+    //De acuerdo a la cantidad de caracteres ingresados hara el ciclo el doble
     for (let i = 0; i < (texto.length * 2); i++) {
         
+        //Trae un caracter de la const
         caracter = Math.floor(Math.random()*35);
         
+        //En cada posicion par insertara el caracter en el arreglo y luego insertara la letra que digitó el usuario
         if (i % 2 == 0) {
             resultadoCifrar.push(caracteres[caracter])
         } else {
@@ -22,12 +36,13 @@ function cifrar() {
             long += 1;
         }
     }
-    
 
+    //Convierte el arreglo en string
     for (let j = 0; j < resultadoCifrar.length; j++) {
         cifrado += resultadoCifrar[j]
     }
 
+    //Limpia el campo de texto
     ele = document.querySelector('label');
     ele.innerHTML = (cifrado);
 
