@@ -9,7 +9,7 @@ var resultadoDescifrar = [];
     //Se usa para guardar el caracter seleccionado aleatoriamente
 var caracter = 0; 
 
-    //Guardara el resultado de cada procedimiento como cadena de txt para imprimirlo despues 
+    //Guardara el resultado de cada procedimiento como cadena de txt para imprimirlo despues
 var cifrado = "";
 var descifrado = "";
 
@@ -46,6 +46,7 @@ function cifrar() {
     ele = document.querySelector('label');
     ele.innerHTML = (cifrado);
 
+    
     document.querySelector('#campoTexto').value = '';
     ocultarImagen();
 }
@@ -55,7 +56,7 @@ function descifrar() {
 
     for (let i = 0; i < texto.length; i++) {
         if (i % 2 == 1) {
-            resultadoDescifrar.push(resultadoCifrar[i]);
+            resultadoDescifrar.push(texto[i]);
         }
     }
 
